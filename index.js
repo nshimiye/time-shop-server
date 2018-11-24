@@ -1,8 +1,9 @@
+'use strict';
 var http = require('http');
 var fs = require('fs');
 
 http.createServer(function(req, res) {
-  //debugHeaders(req);
+  // debugHeaders(req);
 
   if (req.headers.accept && req.headers.accept == 'text/event-stream') {
     if (req.url == '/events') {
@@ -48,7 +49,7 @@ function sendSSE(req, res) {
 
 function constructSSE(res, id, data) {
   res.write('id: ' + id + '\n');
-  res.write("data: " + JSON.stringify(data) + '\n\n');
+  res.write('data: ' + JSON.stringify(data) + '\n\n');
 }
 
 function debugHeaders(req) {
